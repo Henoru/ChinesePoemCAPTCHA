@@ -1,4 +1,4 @@
-from json import load
-from Module.poem import loadpoem
 import poem
-loadpoem()
+poem.loadpoem()
+a,b=poem.form()
+print(a[1],b[1])
