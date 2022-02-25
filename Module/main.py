@@ -12,7 +12,7 @@ poem.loadpoem()
 pygame.init()
 
 # 创建窗口
-screen = pygame.display.set_mode([400,450])
+screen = pygame.display.set_mode([400,470])
 screen.fill([246,203,144])
 pygame.display.flip()
 
@@ -26,7 +26,7 @@ x,y=200-150-gap,10
 posup=[[x+i*(100+gap),y+j*(100+gap+5)] for i in range(3) for j in range(3)]
 gap=0
 width=65
-x,y=200-(width*2+width//2),380
+x,y=200-(width*2+width//2),385
 posdown=[[x+i*(gap+width),y] for i in range(5)]
 # 主循环
 while True:
@@ -39,11 +39,12 @@ while True:
   fonts=[fontup.render(text,True,(0,0,0)) for text in texts]
   for i in range(9):
     drawup(fonts[i],posup[i])  
-  pygame.display.flip()
-  [print(x.get_size()) for x in fonts]
+  #[print(x.get_size()) for x in fonts]
   for i in range(5):
     pygame.draw.rect(screen,(255,255,255),(posdown[i][0],posdown[i][1],width,width))
-  time.sleep(0.1)
+  pygame.display.flip()
+  print(p1[1])
+  time.sleep(1)
   for event in pygame.event.get():
     if event.type==pygame.QUIT:
       quit()
