@@ -21,4 +21,4 @@ def form():
   b=random.randrange(len(data))
   while a==b:
     b=random.randrange(len(data))
-  return (data[a],get5(data[a])),(data[b],get5(data[b]))
+  return (data[a],list(get5(data[a]))),(data[b],list(get5(data[b])))

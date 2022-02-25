@@ -10,5 +10,5 @@ poem
   "paragraphs": list[string,...]
   "title": string
 }
-sentence:string
+sentence:list[char *5]
 ```
