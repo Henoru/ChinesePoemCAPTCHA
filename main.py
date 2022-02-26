@@ -1,6 +1,6 @@
 import random
 import time
-import poem
+from Module import poem
 import pygame
 
 def drawup(font,pos,typ):

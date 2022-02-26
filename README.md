@@ -9,3 +9,5 @@ Snakes
 ## Special Thanks
   201220014@smail.nju.edu.cn for his Pygame Tutorial
   It does help a lot!
+## Support
+  pygame
