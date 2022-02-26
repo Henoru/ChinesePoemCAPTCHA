@@ -1,4 +1,3 @@
-from platform import python_version_tuple
 import random
 import time
 import poem
@@ -33,6 +32,7 @@ fontans=pygame.font.Font(r'Font\思源宋体.otf',20)
 #text=fontup.render('我',True,(0,0,255),(255,255,255))
 #screen.blit(text,(0,0))
 #pygame.display.flip()
+show_answer=False
 gap=10
 x,y=200-150-gap,10
 posup=[[x+i*(100+gap),y+j*(100+gap+5)] for i in range(3) for j in range(3)]
@@ -54,13 +54,13 @@ while True:
   tip=fonttip.render(p1[0]["title"]+" "+p1[0]["author"],True,(0,0,0))
   for i in range(9):
     drawup(fontsup[i],posup[i],1)  
-  #[print(x.get_size()) for x in fonts]
   for i in range(5):
     pygame.draw.rect(screen,(255,255,255),(posdown[i][0],posdown[i][1],width,width))
   for i in range(1,5):
     pygame.draw.line(screen,(194,194,194),(posdown[i][0],posdown[i][1]+10),(posdown[i][0],posdown[i][1]-10+width))
   pygame.display.flip()
-  print(p1[1])
+  if show_answer:
+    print(p1[1])
   attemp=5
   while attemp:
     guess=False
@@ -93,6 +93,11 @@ while True:
             if top:
               pygame.draw.line(screen,(194,194,194),(posdown[top][0],posdown[top][1]+10),(posdown[top][0],posdown[top][1]-10+width))
             pygame.display.flip()
+        elif event.type==pygame.KEYDOWN:
+          if event.key==13:
+            show_answer=not show_answer
+            if show_answer:
+              print(p1[1])
       if top==5:
         guess=True
     answer=[texts[x] for x in ans]
@@ -128,5 +133,10 @@ while True:
         quit()
       elif event.type==pygame.MOUSEBUTTONDOWN:
         click=True
+      elif event.type==pygame.KEYDOWN:
+        if event.key==13:
+          show_answer=not show_answer
+          if show_answer:
+            print(p1[1])
   screen.fill([246,203,144])
   pygame.display.flip()
