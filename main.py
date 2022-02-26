@@ -102,7 +102,6 @@ while True:
         guess=True
     answer=[texts[x] for x in ans]
     if answer==p1[1]:
-      print(answer)
       attemp=1
     while top:
       top=top-1
